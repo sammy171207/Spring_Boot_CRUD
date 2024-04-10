@@ -1,6 +1,6 @@
 package com.example.crud;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 // Import the Employee class from the same package
-import com.example.crud.Employee;
+
 
 @RestController
 public class EmpController {
@@ -19,12 +19,12 @@ public class EmpController {
     // List<Employee> employees = new ArrayList<>();
     @Autowired
     EmployeeService employeeService;
-    @GetMapping("/employees")
+    @GetMapping("employees")
     public List<Employee> getAllEmployees() {
         return employeeService.readEmployees();
     }
 
-    @PostMapping("/employees")
+    @PostMapping("employees")
     public String createEmployee(@RequestBody Employee employee) {
         // employees.add(employee);
         employeeService.creatEmployee(employee);
@@ -34,6 +34,7 @@ public class EmpController {
     public String deleteEmployee(@PathVariable Long id){
         if(employeeService.deleteEmployee(id));
         return "delete successfully";
+        
        
 
     }
